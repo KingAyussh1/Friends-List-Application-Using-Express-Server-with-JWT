@@ -61,7 +61,7 @@ app.post("/login", (req,res) => {
   if (authenticatedUser(username,password)) {
     let accessToken = jwt.sign({
       data: password
-    }, 'access', { expiresIn: 60 * 60 });
+    }, 'access', { expiresIn: 60 });
 
     req.session.authorization = {
       accessToken,username
@@ -93,3 +93,4 @@ const PORT =5000;
 app.use("/friends", routes);
 
 app.listen(PORT,()=>console.log("Server is running"));
+
